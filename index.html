@@ -17,7 +17,7 @@ button,input{font:inherit}button{cursor:pointer;border:0;border-radius:17px;padd
 </style></head>
 <body>
 <main class="wrap">
-<section id="welcome" class="screen active"><div class="welcome-card"><div style="font-size:3rem">🌴🐒🌴</div><h1>LET’S PLAY<br>JUNGLE QUEST</h1><img class="welcome-art" src="FONDO%204.jpg" alt="Jungle Quest welcome picture"><p style="font-size:1.2rem;font-weight:800">Welcome, little explorer!<br>¡Vamos a jugar y aprender inglés!</p><form class="welcome-input" onsubmit="enterHub(event)"><input id="playerName" maxlength="24" autocomplete="given-name" placeholder="Write your name here..." aria-label="Your name"><button type="submit">START ▶</button></form><p class="small">Type your name and start the adventure.</p></div></section>
+<section id="welcome" class="screen active" style="display:flex"><div class="welcome-card"><div style="font-size:3rem">🌴🐒🌴</div><h1>LET’S PLAY<br>JUNGLE QUEST</h1><img class="welcome-art" src="FONDO%204.jpg" alt="Jungle Quest welcome picture"><p style="font-size:1.2rem;font-weight:800">Welcome, little explorer!<br>¡Vamos a jugar y aprender inglés!</p><form class="welcome-input" onsubmit="enterHub(event)"><input id="playerName" maxlength="24" autocomplete="given-name" placeholder="Write your name here..." aria-label="Your name"><button type="submit">START ▶</button></form><p class="small">Type your name and start the adventure.</p></div></section>
 <section id="hub" class="screen">
 <header class="top"><div class="brand">🌿 JUNGLE QUEST</div><div class="pill" id="hello">🐒 Hello, explorer!</div></header>
 <div class="hero"><img class="hero-image" src="POOL.jpeg" alt="Monkey Goes Swimming pool scene"><h1>Monkey Goes Swimming!</h1><p>Choose a game and learn English! <strong>¡Elige un juego!</strong></p><div class="pill">⭐ Earn stars as you explore ⭐</div></div>
@@ -50,10 +50,10 @@ const games=[
 {q:"Question 3: What action is Monkey doing on the red slide?",img:"CHI.jpeg",alt:"Monkey on a slide",a:["SWIM","SLIDE","CLIMB","JUMP"],ok:1},
 {q:"Question 4: Monkey leaps high from the board! He can ____!",img:"POOL.jpeg",alt:"Monkey jumping into the pool",a:["JUMP","SWIM","SLIDE","CLIMB"],ok:0}]}
 ];
-let gameIndex=0,qi=0,score=0,answered=false,lastSpoken="",player="";
+let gameIndex=0,qi=0,score=0,answered=false,lastSpoken="",player="";document.addEventListener("DOMContentLoaded",()=>{ $("welcome").style.display="flex"; $("hub").style.display="none"; $("play").style.display="none"; $("finish").style.display="none"; });
 const $=id=>document.getElementById(id);
-function enterHub(e){e.preventDefault();player=$("playerName").value.trim()||"Explorer";$("hello").textContent="🐒 Hello, "+player+"!";$("welcome").classList.remove("active");$("hub").classList.add("active")}
-function showHub(){document.body.classList.remove("activity-mode");["welcome","hub","play","finish"].forEach(x=>$(x).classList.remove("active"));$("hub").classList.add("active")}
+function enterHub(e){e.preventDefault();player=$("playerName").value.trim()||"Explorer";$("hello").textContent="🐒 Hello, "+player+"!";$("welcome").classList.remove("active");$("welcome").style.display="none";$("hub").style.display="block";$("hub").classList.add("active")}
+function showHub(){document.body.classList.remove("activity-mode");["welcome","hub","play","finish"].forEach(x=>{$(x).classList.remove("active");$(x).style.display="none"});$("hub").style.display="block";$("hub").classList.add("active")}
 function start(i){gameIndex=i;qi=0;score=0;answered=false;document.body.classList.add("activity-mode");$("hub").classList.remove("active");$("finish").classList.remove("active");$("play").classList.add("active");render()}
 function imageMarkup(path,alt,cls=""){return '<img class="'+cls+'" src="'+path+'" alt="'+alt.replace(/"/g,"&quot;")+'" onerror="this.style.display=\'none\';this.insertAdjacentHTML(\'afterend\',\'<div style=&quot;font-size:3rem;padding:20px&quot;>🐒🌊</div>\')">'}
 function render(){let g=games[gameIndex],it=g.items[qi];answered=false;$("gameTitle").textContent=g.title;$("counter").textContent="Question "+(qi+1)+" of "+g.items.length;$("bar").style.width=(qi/g.items.length*100)+"%";$("prompt").textContent=it.q;$("visual").innerHTML=it.img?imageMarkup(it.img,it.alt):it.v||"";$("choices").innerHTML="";$("feedback").textContent="";$("matchBanner").innerHTML=gameIndex===2?imageMarkup("FONDO%203.jpg","Jungle story decoration","match-banner"):"";$("next").textContent=qi===g.items.length-1?"Finish game 🎉":"Next ➜";lastSpoken=it.q;
