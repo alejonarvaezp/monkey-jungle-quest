@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#087f5b"><title>Monkey Goes Swimming! | Jungle Quest</title>
+<style>
+:root{--green:#087f5b;--leaf:#b8e986;--blue:#65d5f2;--yellow:#ffd447;--ink:#18352c;--paper:#fffef7;--pink:#ff7188}*{box-sizing:border-box}body{margin:0;font-family:"Trebuchet MS",system-ui,sans-serif;color:var(--ink);background:linear-gradient(140deg,#e6ffd5,#d9f7ff 60%,#fff2b8);min-height:100vh}button{font:inherit;cursor:pointer;border:0;border-radius:18px;padding:14px 20px;font-weight:900;color:#17382e;background:var(--yellow);box-shadow:0 4px 0 #d6a925;transition:.15s}button:hover{transform:translateY(-2px)}button:focus-visible{outline:4px solid #164e9b;outline-offset:3px}.wrap{max-width:1100px;margin:auto;padding:20px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.brand{font-size:1.05rem;font-weight:1000}.pill{background:#fff;padding:9px 14px;border-radius:99px;font-weight:800}.hero{text-align:center;padding:25px 10px 18px}.hero .monkey{font-size:clamp(4rem,10vw,7rem);line-height:1}.hero h1{font-size:clamp(2rem,6vw,4.2rem);line-height:1;margin:12px 0;color:#075f47}.hero p{font-size:1.2rem;margin:10px}.card{background:rgba(255,255,255,.92);border:3px solid #fff;border-radius:26px;padding:22px;box-shadow:0 10px 24px #15533a15}.hubgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:20px 0}.gamecard{min-height:190px;text-align:left;display:flex;flex-direction:column;gap:10px;align-items:flex-start;border:3px solid #fff;border-radius:24px;padding:20px;color:var(--ink);box-shadow:0 7px 0 #164e9b18}.gamecard .emoji{font-size:3rem}.gamecard strong{font-size:1.25rem}.gamecard span:last-child{font-weight:600}.g1{background:#fff0a9}.g2{background:#b9f0d4}.g3{background:#d9caff}.g4{background:#bdeeff}.g5{background:#ffd0d8}.g6{background:#d8f4a9}.g7{background:#ffe1bb}.screen{display:none}.screen.active{display:block}.screenhead{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:12px 0 20px}.screen h2{font-size:clamp(1.6rem,4vw,2.4rem);margin:0}.prompt{font-size:clamp(1.3rem,3vw,2rem);font-weight:900;text-align:center;margin:15px 0}.visual{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;min-height:180px;background:#e7f9ff;border-radius:22px;padding:18px;font-size:clamp(4rem,11vw,7rem);text-align:center}.visual img,.matchimg{max-width:min(100%,420px);max-height:250px;object-fit:contain;border-radius:18px}.options{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin:20px 0}.options button{min-width:130px;background:#fff;border:3px solid #bce8d6;box-shadow:0 4px 0 #a3d2bf;font-size:1.15rem}.feedback{min-height:48px;text-align:center;font-size:1.15rem;font-weight:900;padding:8px;color:#075f47}.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:12px 0}.secondary{background:#fff;box-shadow:0 4px 0 #d9e3df}.progress{height:12px;background:#d8e9df;border-radius:20px;overflow:hidden;margin:12px 0}.progress span{display:block;height:100%;width:0;background:var(--green);transition:width .3s}.small{font-size:.95rem;font-weight:600}.matchgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.matchitem{background:#fff;border:2px solid #dceee4;border-radius:18px;padding:14px;text-align:center}.matchitem .big{font-size:3rem}.matchitem select{width:100%;padding:12px;border:2px solid #b7d9ca;border-radius:12px;font:inherit;font-weight:800;margin-top:8px}.placement{display:grid;grid-template-columns:1fr 1fr;gap:14px}.zone{border:3px dashed #5bb9d7;background:#effcff;min-height:140px;border-radius:20px;display:grid;place-items:center;text-align:center;padding:15px;font-size:1.3rem;font-weight:900}.zone.target{background:#d5f8e5;border-color:#36a66c}.monkeybtn{font-size:3.5rem;background:#fff;box-shadow:none;border:3px solid #f5d45c}.stars{font-size:3rem;letter-spacing:5px}.footer{text-align:center;padding:25px 0;font-weight:700}.hide{display:none!important}@media(max-width:600px){.wrap{padding:12px}.card{padding:16px}.placement{grid-template-columns:1fr}.screenhead{align-items:flex-start}}
+</style></head>
+<body><main class="wrap">
+<header class="top"><div class="brand">🌿 JUNGLE QUEST</div><div class="pill">🐒 Monkey Goes Swimming!</div><button class="secondary" id="homeTop" onclick="showHub()">⌂ Back to Menu</button></header>
+<section id="hub" class="screen active">
+<div class="hero"><div class="monkey">🐒💦</div><h1>Monkey Goes Swimming!</h1><p>Play, move, and learn English! <strong>¡Juega y aprende!</strong></p><div class="pill">⭐ Earn stars as you explore ⭐</div></div>
+<div class="hubgrid">
+<button class="gamecard g1" onclick="start(0)"><span class="emoji">🛝⬆️⬇️</span><strong>1. Up or Down?</strong><span>Look and choose the position.</span></button>
+<button class="gamecard g2" onclick="start(1)"><span class="emoji">👢📦</span><strong>2. Inside or Outside?</strong><span>Where is Monkey?</span></button>
+<button class="gamecard g3" onclick="start(2)"><span class="emoji">👕🏊</span><strong>3. Match the Story</strong><span>Match pictures and words.</span></button>
+<button class="gamecard g4" onclick="start(3)"><span class="emoji">🏊‍♂️💧</span><strong>4. Pool Sentences</strong><span>Complete the sentence.</span></button>
+<button class="gamecard g5" onclick="start(4)"><span class="emoji">🧗‍♂️🏊‍♂️</span><strong>5. Action Words</strong><span>Jump, climb, slide, swim.</span></button>
+<button class="gamecard g6" onclick="start(5)"><span class="emoji">🏊🐒</span><strong>6. Place Monkey</strong><span>Tap a place to move Monkey.</span></button>
+<button class="gamecard g7" onclick="start(6)"><span class="emoji">🎵⬆️⬇️</span><strong>7. Simon Says</strong><span>Listen, then choose!</span></button>
+</div></section>
+<section id="play" class="screen"><div class="screenhead"><h2 id="gameTitle">Game</h2><button class="secondary" onclick="showHub()">⌂ Back to Menu</button></div><div class="progress"><span id="bar"></span></div><div class="card"><div class="small" id="counter"></div><div class="prompt" id="prompt"></div><div class="visual" id="visual"></div><div id="choices" class="options"></div><div id="feedback" class="feedback" aria-live="polite"></div><div class="actions"><button class="secondary" onclick="speakCurrent()">🔊 Listen</button><button id="next" onclick="nextQ()">Next ➜</button></div></div></section>
+<section id="finish" class="screen"><div class="card" style="text-align:center;margin-top:35px"><div class="monkey">🐒🎉</div><h1 id="finishTitle">Great job!</h1><div class="stars" id="stars">⭐⭐⭐</div><h2 id="grade">Score: 4.0 / 5.0</h2><p id="finishText">You did it!</p><p>Great job! ¡Excelente trabajo! / Good try! ¡Sigue practicando!</p><div class="actions"><button onclick="showHub()">Choose another game 🐾</button><button class="secondary" onclick="playAgain()">Play Again / Jugar de nuevo</button></div></div></section>
+<footer class="footer">🌱 Every try helps you grow! ¡Cada intento te ayuda a aprender!</footer></main>
+<script>
+/* IMAGE SETUP:
+   Create an "images" folder in your GitHub repository and upload the five supplied images.
+   Rename them monkey-slide.jpg, monkey-clothes.jpg, monkey-swim.jpg, monkey-boot.jpg and monkey-box.jpg.
+   Then replace each placeholder emoji below with: <img src="images/monkey-slide.jpg" alt="...">.
+   The game still works with emoji if the images are not added yet. */
+const games=[
+{title:"Up or Down?",items:[
+{q:"Look at the monkey on the left! Where is he?",v:"🐒⬆️🛝",a:["UP","DOWN"],ok:0},
+{q:"Look at the monkey on the slide! Where is he?",v:"🛝🐒⬇️",a:["UP","DOWN"],ok:1}]},
+{title:"Inside or Outside?",items:[
+{q:"Look at the boot house! Where is the monkey in the window?",v:"👢🏠🐒🪟",a:["INSIDE","OUTSIDE"],ok:0},
+{q:"Look at the box! Where is the big monkey?",v:"📦🐒",a:["IN / INSIDE","OUT / OUTSIDE"],ok:1}]},
+{title:"Match the Story",items:[
+{q:"Choose the correct words for each picture.",v:"👕🐒",match:true},
+]},
+{title:"Pool Sentences",items:[
+{q:"Monkey climbs ____ to dive, then goes ____ into the water.",v:"🐒🪜🏊",blanks:[["UP","DOWN"],["UP","DOWN"]],ok:[0,1]},
+{q:"Monkey loves swimming ____ the water and ____ the water.",v:"🐒💦",blanks:[["ABOVE","BELOW"],["ABOVE","BELOW"]],ok:[0,1]},
+{q:"Monkey jumps into the pool! Splash! He is ____ the water now.",v:"🐒🏊‍♂️",a:["INSIDE","OUTSIDE"],ok:0}]},
+{title:"Action Words",items:[
+{q:"What action is Monkey doing when he goes up the ladder?",v:"🐒🪜⬆️",a:["CLIMB","SWIM","SLIDE","JUMP"],ok:0},
+{q:"What action is Monkey doing in the water?",v:"🐒🏊‍♂️",a:["JUMP","CLIMB","SWIM","SLIDE"],ok:2},
+{q:"What action is Monkey doing on the red slide?",v:"🐒🛝",a:["SWIM","SLIDE","CLIMB","JUMP"],ok:1},
+{q:"Monkey leaps high from the board! He can ____!",v:"🐒🤸",a:["JUMP","SWIM","SLIDE","CLIMB"],ok:0}]},
+{title:"Place Monkey",items:[
+{q:"Put Monkey INSIDE the pool.",v:"🐒🏊",place:true,target:"INSIDE"},
+{q:"Put Monkey ABOVE the water.",v:"🐒💦",place:true,target:"ABOVE"},
+{q:"Put Monkey OUTSIDE the pool.",v:"🐒🏊",place:true,target:"OUTSIDE"}]},
+{title:"Simon Says",items:[
+{q:"Simon says: Look UP!",v:"⬆️",a:["⬆️ LOOK UP","⬇️ LOOK DOWN"],ok:0},
+{q:"Simon says: Jump DOWN!",v:"⬇️",a:["⬆️ LOOK UP","⬇️ JUMP DOWN"],ok:1},
+{q:"Simon says: Go INSIDE!",v:"📦",a:["📦 INSIDE","🌳 OUTSIDE"],ok:0},
+{q:"Simon says: Stay OUTSIDE!",v:"🌳",a:["📦 INSIDE","🌳 OUTSIDE"],ok:1}]}
+];
+let gameIndex=0,qi=0,score=0,answered=false,lastSpoken="";
+const $=id=>document.getElementById(id);
+function showHub(){["hub","play","finish"].forEach(x=>$(x).classList.remove("active"));$("hub").classList.add("active");$("homeTop").classList.remove("hide")}
+function start(i){gameIndex=i;qi=0;score=0;answered=false;$("hub").classList.remove("active");$("finish").classList.remove("active");$("play").classList.add("active");$("homeTop").classList.add("hide");render()}
+function render(){let g=games[gameIndex],it=g.items[qi];answered=false;$("gameTitle").textContent=g.title;$("counter").textContent="Question "+(qi+1)+" of "+g.items.length;$("bar").style.width=(qi/g.items.length*100)+"%";$("prompt").textContent=it.q;$("visual").innerHTML=it.v;$("choices").innerHTML="";$("feedback").textContent="";$("next").textContent=qi===g.items.length-1?"Finish game 🎉":"Next ➜";
+if(it.match){renderMatching();lastSpoken=it.q;return}
+if(it.place){renderPlacement(it);lastSpoken=it.q;return}
+if(it.blanks){it.blanks.forEach((opts,j)=>{let s=document.createElement("select");s.setAttribute("aria-label","Choose word "+(j+1));s.innerHTML='<option value="">Choose...</option>'+opts.map((x,k)=>'<option value="'+k+'">'+x+'</option>').join("");s.style.cssText="padding:13px;border-radius:12px;border:2px solid #b7d9ca;font:inherit;font-weight:900";$("choices").appendChild(s)});let b=document.createElement("button");b.textContent="Check answer";b.onclick=()=>checkBlanks(it);$("choices").appendChild(b);lastSpoken=it.q;return}
+it.a.forEach((a,k)=>{let b=document.createElement("button");b.textContent=a;b.onclick=()=>answer(k,it.ok,a);$("choices").appendChild(b)});lastSpoken=it.q+" "+it.a.join(", ")}
+function answer(k,ok,label){if(answered)return;answered=true;if(k===ok){score++;$("feedback").textContent="⭐ Great job! ¡Excelente!";}else{$("feedback").textContent="Good try! The answer is "+games[gameIndex].items[qi].a[ok]+". ¡Sigue practicando!";}Array.from($("choices").querySelectorAll("button")).forEach(b=>b.disabled=true)}
+function checkBlanks(it){if(answered)return;let sels=[...$("choices").querySelectorAll("select")];if(sels.some(s=>s.value==="")){$("feedback").textContent="Choose an answer for each space.";return}answered=true;let vals=sels.map(s=>Number(s.value));if(vals.every((v,j)=>v===it.ok[j])){score++;$("feedback").textContent="⭐ Perfect! ¡Muy bien!";}else{$("feedback").textContent="Good try! Answers: "+it.blanks.map((o,j)=>o[it.ok[j]]).join(" / ")+". ¡Sigue practicando!";}sels.forEach(s=>s.disabled=true)}
+function renderMatching(){const pairs=[["👕🐒","Get dressed"],["🙈👕","Get undressed"],["🐒🧺","BEFORE swimming"],["🐒🏊‍♂️","AFTER swimming"]];$("visual").innerHTML="Match each picture with its words.";let box=document.createElement("div");box.className="matchgrid";pairs.forEach((p,i)=>{let d=document.createElement("div");d.className="matchitem";d.innerHTML='<div class="big">'+p[0]+'</div><strong>Picture '+(i+1)+'</strong><select aria-label="Match picture '+(i+1)+'"><option value="">Choose words...</option>'+pairs.map((x,j)=>'<option value="'+j+'">'+x[1]+'</option>').join("")+'</select>';box.appendChild(d)});$("choices").appendChild(box);let b=document.createElement("button");b.textContent="Check matches";b.onclick=()=>{if(answered)return;let s=[...box.querySelectorAll("select")];if(s.some(x=>x.value==="")){$("feedback").textContent="Try matching all four pictures.";return}answered=true;let correct=s.every((x,i)=>Number(x.value)===i);if(correct){score+=2;$("feedback").textContent="⭐ All matches are correct! ¡Excelente!";}else{$("feedback").textContent="Good try! Correct order: Get dressed, Get undressed, BEFORE swimming, AFTER swimming. You can continue!";}s.forEach(x=>x.disabled=true);b.disabled=true};$("choices").appendChild(b)}
+function renderPlacement(it){$("choices").innerHTML='<div class="placement"><button class="zone" onclick="placeChoice(0)">🏊‍♂️<br>INSIDE the pool</button><button class="zone" onclick="placeChoice(1)">💧<br>ABOVE the water</button><button class="zone" onclick="placeChoice(2)">🌳<br>OUTSIDE the pool</button><button class="monkeybtn" aria-label="Monkey" onclick="speakCurrent()">🐒</button></div>'}
+function placeChoice(k){if(answered)return;let target=games[gameIndex].items[qi].target;let correct={"INSIDE":0,"ABOVE":1,"OUTSIDE":2}[target];answered=true;if(k===correct){score++;$("feedback").textContent="🐒 Monkey is "+target+"! Great job!";}else{$("feedback").textContent="Good try! Monkey should be "+target+". You can continue!";}document.querySelectorAll(".zone").forEach(x=>x.disabled=true)}
+function nextQ(){if(!answered){$("feedback").textContent="Choose an answer first. If you are unsure, make your best try!";return}if(qi<games[gameIndex].items.length-1){qi++;render()}else finish()}
+function finish(){ $("play").classList.remove("active");$("finish").classList.add("active");let total=games[gameIndex].items.length;let max=gameIndex===2?2:total;let pct=Math.min(1,score/max);let grade=(1+4*pct).toFixed(1);let stars=Math.max(1,Math.min(5,Math.round(pct*5)));$("stars").textContent="⭐".repeat(stars)+"☆".repeat(5-stars);$("grade").textContent="Formative score: "+grade+" / 5.0";$("finishTitle").textContent=pct>=.7?"Great job! ¡Excelente trabajo!":"Good try! ¡Sigue practicando!";$("finishText").textContent="You earned "+score+" point(s). Keep exploring and learning!";if(pct>=.7)confetti()}
+function playAgain(){start(gameIndex)}
+function speakCurrent(){let text=lastSpoken||$("prompt").textContent;if(!("speechSynthesis"in window)){$("feedback").textContent="Audio is not available in this browser.";return}speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(text);u.lang="en-US";u.rate=.82;speechSynthesis.speak(u)}
+function confetti(){for(let i=0;i<22;i++){let e=document.createElement("span");e.textContent=["⭐","🎉","🌟","💦"][i%4];e.style.cssText="position:fixed;left:"+Math.random()*95+"vw;top:"+Math.random()*85+"vh;font-size:24px;pointer-events:none;z-index:9;animation:pop 1.2s ease-out forwards";document.body.appendChild(e);setTimeout(()=>e.remove(),1300)}}
+const style=document.createElement("style");style.textContent="@keyframes pop{0%{transform:scale(.2) rotate(0);opacity:1}100%{transform:scale(1.5) translateY(-60px) rotate(160deg);opacity:0}}";document.head.appendChild(style);
+</script></body></html>
